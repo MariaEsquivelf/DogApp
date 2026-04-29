@@ -19,30 +19,28 @@ export function Pagination({
   return (
     <nav
       aria-label="Paginación"
-      className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+      className="flex items-center justify-center gap-3"
     >
       <button
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-app-primary bg-app-primary px-5 py-2.5 text-sm font-semibold text-app-primary-text shadow-sm transition hover:border-app-accent-hover hover:bg-app-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-app-primary disabled:hover:bg-app-primary sm:w-auto"
+        className="inline-flex size-11 items-center justify-center rounded-xl border border-app-border bg-app-surface text-app-muted shadow-sm transition hover:border-app-primary hover:bg-app-accent-soft disabled:cursor-not-allowed disabled:opacity-40"
         disabled={currentPage === 1}
         onClick={() => router.push(`${basePath}?page=${currentPage - 1}`)}
         type="button"
       >
-        <ChevronLeft aria-hidden="true" className="size-4" />
-        
+        <ChevronLeft aria-hidden="true" className="size-5" />
       </button>
 
-      <span className="rounded-full bg-app-primary px-4 py-2 text-sm font-medium text-app-primary-text shadow-sm">
-         {currentPage} / {totalPages}
+      <span className="rounded-xl bg-app-primary px-5 py-3 text-base font-extrabold leading-none text-app-primary-text shadow-sm">
+        {currentPage}
       </span>
 
       <button
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-app-primary bg-app-primary px-5 py-2.5 text-sm font-semibold text-app-primary-text shadow-sm transition hover:border-app-accent-hover hover:bg-app-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-app-primary disabled:hover:bg-app-primary sm:w-auto"
+        className="inline-flex size-11 items-center justify-center rounded-xl border border-app-primary bg-app-primary text-app-primary-text shadow-sm transition hover:bg-app-accent-hover disabled:cursor-not-allowed disabled:opacity-40"
         disabled={currentPage === totalPages}
         onClick={() => router.push(`${basePath}?page=${currentPage + 1}`)}
         type="button"
       >
-        
-        <ChevronRight aria-hidden="true" className="size-4" />
+        <ChevronRight aria-hidden="true" className="size-5" />
       </button>
     </nav>
   )

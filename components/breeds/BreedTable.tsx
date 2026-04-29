@@ -7,72 +7,86 @@ type Props = {
 
 export function BreedTable({ breeds }: Props) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-app-border-soft bg-app-surface shadow-md">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="border-b border-app-border text-xs uppercase tracking-wide text-app-muted">
-            <th className="px-6 py-4 text-left font-semibold">Nombre</th>
-            <th className="px-6 py-4 text-left font-semibold">
-              Hipoalergénico
-            </th>
-            <th className="px-6 py-4 text-left font-semibold">Vida (años)</th>
-            <th className="px-6 py-4 text-left font-semibold">Peso macho</th>
-            <th className="px-6 py-4 text-left font-semibold">Peso hembra</th>
-            <th className="px-6 py-4 text-left font-semibold">Grupo</th>
-          </tr>
-        </thead>
-        <tbody>
-          {breeds.map((breed) => {
-            const { name, hypoallergenic, life, male_weight, female_weight } =
-              breed.attributes
-            const groupId = breed.relationships.group.data.id
+    <div className="overflow-hidden rounded-xl border border-app-border bg-app-surface shadow-sm">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[820px] text-base">
+          <thead>
+            <tr className="border-b border-app-border-soft text-sm uppercase leading-4 tracking-wide text-app-muted">
+              <th className="px-5 py-4 text-left font-extrabold">Nombre</th>
+              <th className="px-5 py-4 text-left font-extrabold">
+                Hipoalergénico
+              </th>
+              <th className="px-5 py-4 text-left font-extrabold">
+                Vida
+                <br />
+                (años)
+              </th>
+              <th className="px-5 py-4 text-left font-extrabold">
+                Peso
+                <br />
+                macho
+              </th>
+              <th className="px-5 py-4 text-left font-extrabold">
+                Peso
+                <br />
+                hembra
+              </th>
+              <th className="px-5 py-4 text-left font-extrabold">Grupo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {breeds.map((breed) => {
+              const { name, hypoallergenic, life, male_weight, female_weight } =
+                breed.attributes
+              const groupId = breed.relationships.group.data.id
 
-            return (
-              <tr
-                className="border-b border-app-border-soft transition-colors hover:bg-app-accent-soft"
-                key={breed.id}
-              >
-                <td className="px-6 py-4">
-                  <Link
-                    className="font-medium text-app-accent hover:underline"
-                    href={`/breeds/${breed.id}`}
-                  >
-                    {name}
-                  </Link>
-                </td>
-                <td className="px-6 py-4">
-                  <span
-                    className={`rounded-full px-2 py-1 text-xs font-medium ${
-                      hypoallergenic
-                        ? 'bg-app-success-bg text-app-success-text'
-                        : 'bg-app-neutral-bg text-app-neutral-text'
-                    }`}
-                  >
-                    {hypoallergenic ? '✓ Sí' : 'No'}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-app-muted">
-                  {life.min} - {life.max}
-                </td>
-                <td className="px-6 py-4 text-app-muted">
-                  {male_weight.min} - {male_weight.max} kg
-                </td>
-                <td className="px-6 py-4 text-app-muted">
-                  {female_weight.min} - {female_weight.max} kg
-                </td>
-                <td className="px-6 py-4">
-                  <Link
-                    className="rounded-full bg-app-primary px-3 py-1 text-xs font-semibold text-app-primary-text transition-colors hover:bg-app-accent-hover"
-                    href={`/groups/${groupId}`}
-                  >
-                    Ver grupo
-                  </Link>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
+              return (
+                <tr
+                  className="border-b border-app-border-soft transition-colors last:border-b-0 hover:bg-app-accent-soft/45"
+                  key={breed.id}
+                >
+                  <td className="px-5 py-4">
+                    <Link
+                      className="font-extrabold text-app-accent hover:underline"
+                      href={`/breeds/${breed.id}`}
+                    >
+                      {name}
+                    </Link>
+                  </td>
+                  <td className="px-5 py-4">
+                    <span
+                      className={`rounded-full px-2.5 py-1 text-sm font-extrabold leading-none ${
+                        hypoallergenic
+                          ? 'bg-app-success-bg text-app-success-text'
+                          : 'bg-app-neutral-bg text-app-neutral-text'
+                      }`}
+                    >
+                      {hypoallergenic ? '✓ Sí' : 'No'}
+                    </span>
+                  </td>
+                  <td className="px-5 py-4 font-semibold text-app-text">
+                    {life.min} - {life.max}
+                  </td>
+                  <td className="px-5 py-4 font-semibold text-app-text">
+                    {male_weight.min} - {male_weight.max} kg
+                  </td>
+                  <td className="px-5 py-4 font-semibold text-app-text">
+                    {female_weight.min} - {female_weight.max} kg
+                  </td>
+                  <td className="px-5 py-4">
+                    <Link
+                      className="inline-flex items-center rounded-xl border border-app-primary bg-app-primary px-4 py-2 text-sm font-extrabold text-app-primary-text transition-colors hover:bg-app-accent-hover"
+                      href={`/groups/${groupId}`}
+                    >
+                      Ver grupo →
+                    </Link>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

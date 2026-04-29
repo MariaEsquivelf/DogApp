@@ -3,23 +3,23 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --app-bg: #fbf5ff;
+  --app-bg: #fbfaf6;
   --app-surface: #ffffff;
-  --app-text: #2f2638;
-  --app-heading: #19111f;
-  --app-muted: #6f607c;
-  --app-muted-light: #a995b6;
-  --app-border: #e9d8f3;
-  --app-border-soft: #f8e7a6;
-  --app-accent: #bd5a00;
-  --app-accent-soft: #fff1a8;
-  --app-accent-hover: #ffd45a;
-  --app-primary: #ffe06b;
-  --app-primary-text: #9a3f00;
-  --app-success-bg: #dcfce7;
-  --app-success-text: #15803d;
-  --app-neutral-bg: #f3f4f6;
-  --app-neutral-text: #6b7280;
+  --app-text: #101820;
+  --app-heading: #05080d;
+  --app-muted: #5f646b;
+  --app-muted-light: #7d7368;
+  --app-border: #ded8cd;
+  --app-border-soft: #eee9df;
+  --app-accent: #965100;
+  --app-accent-soft: #fff0cf;
+  --app-accent-hover: #ffca72;
+  --app-primary: #ffbd59;
+  --app-primary-text: #5f3200;
+  --app-success-bg: #edf8dd;
+  --app-success-text: #3d7b1f;
+  --app-neutral-bg: #f3f0e8;
+  --app-neutral-text: #6f6a60;
 }
 
 @theme inline {
@@ -42,7 +42,7 @@
   --color-app-success-text: var(--app-success-text);
   --color-app-neutral-bg: var(--app-neutral-bg);
   --color-app-neutral-text: var(--app-neutral-text);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-app-sans);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -56,5 +56,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-app-sans), Arial, Helvetica, sans-serif;
 }
