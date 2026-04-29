@@ -14,7 +14,7 @@ export default function Home() {
         </p>
         <Link
           href="/breeds"
-          className="rounded-full bg-app-accent px-6 py-3 text-sm font-semibold text-app-primary-text hover:bg-app-accent-hover transition-colors"
+          className="rounded-full bg-app-primary px-6 py-3 text-sm font-semibold text-app-primary-text transition-colors hover:bg-app-accent-hover"
         >
           Ver razas →
         </Link>

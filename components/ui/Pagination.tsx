@@ -22,7 +22,7 @@ export function Pagination({
       className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
     >
       <button
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-app-border bg-app-surface px-5 py-2.5 text-sm font-semibold text-app-text shadow-sm transition hover:border-app-accent hover:bg-app-accent-soft disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-app-border disabled:hover:bg-app-surface sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-app-primary bg-app-primary px-5 py-2.5 text-sm font-semibold text-app-primary-text shadow-sm transition hover:border-app-accent-hover hover:bg-app-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-app-primary disabled:hover:bg-app-primary sm:w-auto"
         disabled={currentPage === 1}
         onClick={() => router.push(`${basePath}?page=${currentPage - 1}`)}
         type="button"
@@ -36,7 +36,7 @@ export function Pagination({
       </span>
 
       <button
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-app-border bg-app-surface px-5 py-2.5 text-sm font-semibold text-app-text shadow-sm transition hover:border-app-accent hover:bg-app-accent-soft disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-app-border disabled:hover:bg-app-surface sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-app-primary bg-app-primary px-5 py-2.5 text-sm font-semibold text-app-primary-text shadow-sm transition hover:border-app-accent-hover hover:bg-app-accent-hover disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-app-primary disabled:hover:bg-app-primary sm:w-auto"
         disabled={currentPage === totalPages}
         onClick={() => router.push(`${basePath}?page=${currentPage + 1}`)}
         type="button"

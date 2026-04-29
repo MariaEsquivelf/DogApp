@@ -20,7 +20,7 @@ export function GroupDetail({
     <main className="min-h-screen bg-app-bg px-4 py-8 text-app-text sm:px-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
         <Link
-          className="w-fit rounded-full border border-app-border bg-app-surface px-4 py-2 text-sm font-semibold text-app-text shadow-sm transition hover:border-app-accent hover:bg-app-accent-soft"
+          className="w-fit rounded-full border border-app-primary bg-app-primary px-4 py-2 text-sm font-semibold text-app-primary-text shadow-sm transition hover:border-app-accent-hover hover:bg-app-accent-hover"
           href="/breeds"
         >
           ← Volver a razas
