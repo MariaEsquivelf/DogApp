@@ -31,7 +31,7 @@ export function Pagination({
       </button>
 
       <span className="rounded-xl bg-app-primary px-5 py-3 text-base font-extrabold leading-none text-app-primary-text shadow-sm">
-        {currentPage}
+        {currentPage} / {totalPages}
       </span>
 
       <button
