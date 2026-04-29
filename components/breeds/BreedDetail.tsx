@@ -1,14 +1,17 @@
 import Link from 'next/link'
 import type { Breed } from '@/types/breed.types'
+import type { Group } from '@/types/group.types'
 
 type Props = {
   breed: Breed
+  group: Group
 }
 
-export function BreedDetail({ breed }: Props) {
+export function BreedDetail({ breed, group }: Props) {
   const { name, description, hypoallergenic, life, male_weight, female_weight } =
     breed.attributes
   const groupId = breed.relationships.group.data.id
+  const groupName = group.attributes.name
 
   return (
     <main className="min-h-screen bg-app-bg px-4 py-8 text-app-text sm:px-6 lg:px-8">
@@ -79,7 +82,7 @@ export function BreedDetail({ breed }: Props) {
               className="rounded-full bg-app-primary px-5 py-2.5 text-sm font-semibold text-app-primary-text shadow-sm transition hover:bg-app-accent-hover"
               href={`/groups/${groupId}`}
             >
-              Ver grupo →
+              {groupName} →
             </Link>
           </div>
         </section>

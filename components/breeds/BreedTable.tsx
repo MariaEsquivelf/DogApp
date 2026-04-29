@@ -31,14 +31,12 @@ export function BreedTable({ breeds }: Props) {
                 <br />
                 hembra
               </th>
-              <th className="px-5 py-4 text-left font-extrabold">Grupo</th>
             </tr>
           </thead>
           <tbody>
             {breeds.map((breed) => {
               const { name, hypoallergenic, life, male_weight, female_weight } =
                 breed.attributes
-              const groupId = breed.relationships.group.data.id
 
               return (
                 <tr
@@ -73,14 +71,7 @@ export function BreedTable({ breeds }: Props) {
                   <td className="px-5 py-4 font-semibold text-app-text">
                     {female_weight.min} - {female_weight.max} kg
                   </td>
-                  <td className="px-5 py-4">
-                    <Link
-                      className="inline-flex items-center rounded-xl border border-app-primary bg-app-primary px-4 py-2 text-sm font-extrabold text-app-primary-text transition-colors hover:bg-app-accent-hover"
-                      href={`/groups/${groupId}`}
-                    >
-                      Ver grupo →
-                    </Link>
-                  </td>
+                 
                 </tr>
               )
             })}
