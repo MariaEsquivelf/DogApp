@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --app-bg: #fbf5ff;
+  --app-surface: #ffffff;
+  --app-text: #2f2638;
+  --app-heading: #19111f;
+  --app-muted: #6f607c;
+  --app-muted-light: #a995b6;
+  --app-border: #e9d8f3;
+  --app-border-soft: #f3e8fb;
+  --app-accent: #8d3fc2;
+  --app-accent-soft: #f1e1ff;
+  --app-accent-hover: #6f2ea0;
+  --app-primary: #7f3bb2;
+  --app-primary-text: #ffffff;
+  --app-success-bg: #dcfce7;
+  --app-success-text: #15803d;
+  --app-neutral-bg: #f3f4f6;
+  --app-neutral-text: #6b7280;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-app-bg: var(--app-bg);
+  --color-app-surface: var(--app-surface);
+  --color-app-text: var(--app-text);
+  --color-app-heading: var(--app-heading);
+  --color-app-muted: var(--app-muted);
+  --color-app-muted-light: var(--app-muted-light);
+  --color-app-border: var(--app-border);
+  --color-app-border-soft: var(--app-border-soft);
+  --color-app-accent: var(--app-accent);
+  --color-app-accent-soft: var(--app-accent-soft);
+  --color-app-accent-hover: var(--app-accent-hover);
+  --color-app-primary: var(--app-primary);
+  --color-app-primary-text: var(--app-primary-text);
+  --color-app-success-bg: var(--app-success-bg);
+  --color-app-success-text: var(--app-success-text);
+  --color-app-neutral-bg: var(--app-neutral-bg);
+  --color-app-neutral-text: var(--app-neutral-text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
