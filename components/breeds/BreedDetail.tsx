@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Breed } from '@/types/breed.types'
 import type { Group } from '@/types/group.types'
+import { BreedStatCard } from '@/components/breeds/BreedStatCard'
 
 type Props = {
   breed: Breed
@@ -48,33 +49,24 @@ export function BreedDetail({ breed, group }: Props) {
           </div>
 
           <div className="grid grid-cols-3 divide-x divide-app-border-soft border-b border-app-border-soft">
-            <div className="px-6 py-5 sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-wide text-app-muted-light">
-                Esperanza de vida
-              </p>
-              <p className="mt-1 text-2xl font-bold text-app-accent">
-                {life.min} - {life.max}
-              </p>
-              <p className="text-xs text-app-muted-light">años</p>
-            </div>
-            <div className="px-6 py-5 sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-wide text-app-muted-light">
-                Peso macho
-              </p>
-              <p className="mt-1 text-2xl font-bold text-app-accent">
-                {male_weight.min} - {male_weight.max}
-              </p>
-              <p className="text-xs text-app-muted-light">kg</p>
-            </div>
-            <div className="px-6 py-5 sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-wide text-app-muted-light">
-                Peso hembra
-              </p>
-              <p className="mt-1 text-2xl font-bold text-app-accent">
-                {female_weight.min} - {female_weight.max}
-              </p>
-              <p className="text-xs text-app-muted-light">kg</p>
-            </div>
+            <BreedStatCard
+              label="Esperanza de vida"
+              min={life.min}
+              max={life.max}
+              unit="años"
+            />
+            <BreedStatCard
+              label="Peso macho"
+              min={male_weight.min}
+              max={male_weight.max}
+              unit="kg"
+            />
+            <BreedStatCard
+              label="Peso hembra"
+              min={female_weight.min}
+              max={female_weight.max}
+              unit="kg"
+            />
           </div>
 
           <div className="flex justify-end px-6 py-4 sm:px-8">
