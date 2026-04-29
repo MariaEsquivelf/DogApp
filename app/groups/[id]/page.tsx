@@ -1,33 +1,31 @@
-// app/groups/[id]/page.tsx
-import { getGroupById, getBreedsByIds } from '@/services/groups.service'
+import { getGroupById } from '@/services/groups.service'
 import { GroupDetail } from '@/components/groups/GroupDetail'
+import Link from 'next/link'
+import { getBreedsByIds } from '@/services/breeds.service'
 
 type Props = {
   params: Promise<{ id: string }>
-  searchParams: Promise<{ page?: string }>
 }
 
-const PAGE_SIZE = 20
-
-export default async function GroupPage({ params, searchParams }: Props) {
+export default async function GroupPage({ params }: Props) {
   const { id } = await params
-  const { page } = await searchParams
-  const currentPage = Number(page) || 1
   const groupRes = await getGroupById(id)
 
   const breedIds = groupRes.data.relationships.breeds.data.map(b => b.id)
-  const totalPages = Math.max(1, Math.ceil(breedIds.length / PAGE_SIZE))
-  const start = (currentPage - 1) * PAGE_SIZE
-  const paginatedBreedIds = breedIds.slice(start, start + PAGE_SIZE)
-  const breedsRes = await getBreedsByIds(paginatedBreedIds)
+  const breedsRes = await getBreedsByIds(breedIds)
   const breeds = breedsRes.map(r => r.data)
 
   return (
-    <GroupDetail
-      group={groupRes.data}
-      breeds={breeds}
-      currentPage={currentPage}
-      totalPages={totalPages}
-    />
+    <main className="min-h-screen bg-app-bg px-4 py-8 text-app-text sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
+        <Link
+          href="/breeds"
+          className="w-fit rounded-full border border-app-primary bg-app-primary px-4 py-2 text-sm font-semibold text-app-primary-text shadow-sm transition hover:border-app-accent-hover hover:bg-app-accent-hover"
+        >
+          ← Volver a razas
+        </Link>
+        <GroupDetail group={groupRes.data} breeds={breeds} />
+      </div>
+    </main>
   )
 }

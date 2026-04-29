@@ -18,3 +18,9 @@ export async function getBreedById(id: string): Promise<BreedResponse> {
   if (!res.ok) throw new Error('Raza no encontrada')
   return res.json()
 }
+export async function getBreedsByIds(ids: string[]): Promise<BreedResponse[]> {
+  const promises = ids.map(id =>
+    fetch(`${BASE_URL}/breeds/${id}`).then(res => res.json())
+  )
+  return Promise.all(promises)
+}
