@@ -62,7 +62,7 @@ export function BreedTable({ breeds }: Props) {
                 </td>
                 <td className="px-6 py-4">
                   <Link
-                    className="rounded-full bg-app-accent-soft px-3 py-1 text-xs text-app-accent transition-colors hover:bg-app-border"
+                    className="rounded-full bg-app-primary px-3 py-1 text-xs font-semibold text-app-primary-text transition-colors hover:bg-app-accent-hover"
                     href={`/groups/${groupId}`}
                   >
                     Ver grupo
